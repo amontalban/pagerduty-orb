@@ -3,7 +3,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    pagerduty: amontalban/pagerduty@1.0.3
+    pagerduty: amontalban/pagerduty@1.0.4
   jobs:
     build:
       docker:
