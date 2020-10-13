@@ -25,4 +25,10 @@ usage:
             severity: warning
             source: "CircleCI notification"
             component: "Infrastructure"
-            links: '[{"href":"https://app.circleci.com/pipelines/<< pipeline.project.type >>/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/<< pipeline.number >>/workflows/$CIRCLE_WORKFLOW_ID"}]'
+            links: >-
+              [
+                {
+                  \"href\": \"https://app.circleci.com/pipelines/<< pipeline.project.type >>/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/<< pipeline.number >>/workflows/$CIRCLE_WORKFLOW_ID\",
+                  \"text\": \"CircleCI Link\"
+                }
+              ]

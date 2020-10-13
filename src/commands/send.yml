@@ -60,6 +60,7 @@ steps:
       echo "[INFO]  queuing event to PagerDuty..."
       echo "[INFO]  incident title: << parameters.incident_title >>"
       echo "[INFO]  incident details: $PAGERDUTY_DETAILS"
+      echo "[INFO]  incident links: << parameters.links >>"
 
       curl \
           --header "Content-Type: application/json" \
@@ -68,13 +69,10 @@ steps:
           "{ \
             \"routing_key\": \"<< parameters.apitoken >>\", \
             \"event_action\": \"trigger\", \
-            \
             <<# parameters.incident_key >>
             \"dedup_key\": \"<< parameters.incident_key >>\", \
-            <</ parameters.incident_key >> \
-            \
-            \"links\": \"<< parameters.links >>\", \
-            \
+            <</ parameters.incident_key >>
+            \"links\": << parameters.links >>, \
             \"payload\": { \
               \"summary\": \"<< parameters.incident_title >>\", \
               \"severity\": \"<< parameters.severity >>\", \
