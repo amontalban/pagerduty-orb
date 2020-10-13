@@ -1,0 +1,28 @@
+description: >
+  Sample example of using PagerDuty notification on pipeline failure.
+usage:
+  version: 2.1
+  orbs:
+    pagerduty: amontalban/pagerduty@0.0.1
+  jobs:
+    build:
+      docker:
+        - image: cimg/base:2020.01
+      description: Send PagerDuty alert if pipeline failed
+      steps:
+        - pagerduty/notify:
+            when: on_fail
+            # This is the Integration Key
+            # Check https://support.pagerduty.com/docs/services-and-integrations#create-a-generic-events-api-integration
+            # To create a new integration
+            apitoken: "YOUR_INTEGRATION_KEY"
+            incident_description: "Infrastructure pipeline failing"
+            incident_description_file: ""
+            incident_key: ""
+            incident_title: "$CIRCLE_JOB job has caused an incident"
+            # List of comma separated branches
+            only_for_branches: "master"
+            severity: warning
+            source: "CircleCI notification"
+            component: "Infrastructure"
+            links: '[{"href":"https://app.circleci.com/pipelines/<< pipeline.project.type >>/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/<< pipeline.number >>/workflows/$CIRCLE_WORKFLOW_ID"}]'

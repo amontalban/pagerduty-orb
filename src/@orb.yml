@@ -1,0 +1,12 @@
+version: 2.1
+
+description: >
+  Easily integrate custom PagerDuty notifications into your CircleCI projects. Create custom alert events for any job failure or success.
+
+  Based on the work from:
+    - https://circleci.com/developer/orbs/orb/fredbi/pagerduty
+    - https://circleci.com/orbs/registry/orb/amanjain97/pagerduty
+
+display:
+  home_url: "https://www.github.com/amontalban/pagerduty-orb"
+  source_url: "https://www.github.com/amontalban/pagerduty-orb"
